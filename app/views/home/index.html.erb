@@ -1,0 +1,62 @@
+<div class="container p-3">
+    <div class="row border border-2 border-dark">
+        <div class="col">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <label>COORDINATES</label>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <label>Latitude</label>
+                                <%= select_tag :latitude, options_for_select(coordinate_options), { class: "form-select" } %>
+                            </div>
+                            <div class="col">
+                                <label>Longitude</label>
+                                <%= select_tag :longitude, options_for_select(coordinate_options), { class: "form-select" } %>
+                            </div>
+                            <div class="col">
+                                <label>Direction</label>
+                                <%= select_tag :latitude, options_for_select(direction_options), { class: "form-select" } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label>COMMANDS</label>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-success w-100">MOVE</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-primary w-100">LEFT</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-info w-100">RIGHT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3 mb-3">REPORT</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-3 border border-2 border-dark">
+        <div class="col p-3">
+            <label>Input</label>
+            <div class="row">
+                <div class="col">
+                    PLACE 1, 2, EAST MOVE MOVE LEFT MOVE
+                </div>
+            </div>
+        </div>
+        <div class="col p-3">
+            <label>Output</label>
+            <div class="row">
+                <div class="col">
+                    3, 3, NORTH
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
