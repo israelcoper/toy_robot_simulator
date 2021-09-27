@@ -16,7 +16,7 @@
                             </div>
                             <div class="col">
                                 <label>Direction</label>
-                                <%= select_tag :latitude, options_for_select(direction_options), { class: "form-select" } %>
+                                <%= select_tag :direction, options_for_select(direction_options), { class: "form-select" } %>
                             </div>
                         </div>
                     </div>
@@ -26,16 +26,20 @@
                         <label>COMMANDS</label>
                         <div class="row mt-2">
                             <div class="col">
-                                <button type="button" class="btn btn-outline-success w-100">MOVE</button>
+                                <input type="button" class="btn btn-outline-success w-100 btn-command" value="MOVE" />
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-outline-primary w-100">LEFT</button>
+                                <input type="button" class="btn btn-outline-primary w-100 btn-command" value="LEFT" />
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-outline-info w-100">RIGHT</button>
+                                <input type="button" class="btn btn-outline-info w-100 btn-command" value="RIGHT" />
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="command-container" class="row border border-2 border-start-0 border-end-0 border-dark mt-3 d-none">
+                    <div class="col p-3"></div>
+                    <%= hidden_field_tag "commands" %>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 mt-3 mb-3">REPORT</button>
             </form>
@@ -45,17 +49,13 @@
         <div class="col p-3">
             <label>Input</label>
             <div class="row">
-                <div class="col">
-                    PLACE 1, 2, EAST MOVE MOVE LEFT MOVE
-                </div>
+                <div id="inputValue" class="col"></div>
             </div>
         </div>
         <div class="col p-3">
             <label>Output</label>
             <div class="row">
-                <div class="col">
-                    3, 3, NORTH
-                </div>
+                <div id="outputValue" class="col"></div>
             </div>
         </div>
     </div>
