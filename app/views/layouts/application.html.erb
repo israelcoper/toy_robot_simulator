@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ToyRobotSimulator</title>
+    <title>Toy Robot Simulator</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-light mb-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          Toy Robot Simulator
+        </a>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
