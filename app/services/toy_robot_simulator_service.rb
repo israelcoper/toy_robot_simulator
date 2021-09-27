@@ -19,6 +19,7 @@ class ToyRobotSimulatorService
             command == COMMANDS[:move] ? move : rotate(command)
             return false unless valid_move?
         end
+        return valid_move?
     end
 
     # update value of either latitude or longitude
@@ -33,6 +34,8 @@ class ToyRobotSimulatorService
         when DIRECTIONS[:west]
             self.latitude -= 1
         end
+
+        return [latitude, longitude]
     end
 
     # update the value of direction
@@ -47,6 +50,7 @@ class ToyRobotSimulatorService
             when DIRECTIONS[:west]
                 command == "LEFT" ? DIRECTIONS[:south] : DIRECTIONS[:north]
             end
+        return direction
     end
 
     # check for valid moves
