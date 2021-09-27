@@ -4,15 +4,26 @@ class HomeController < ApplicationController
 
   def report
     input = {
-      latitude: params[:latitude],
-      longitude: params[:longitude],
+      latitude: params[:latitude].to_i,
+      longitude: params[:longitude].to_i,
       direction: params[:direction],
       commands: params[:commands].split(',')
     }
 
-    render json: {
+    simulator = ToyRobotSimulatorService.new input
+
+    json = {
       input: "PLACE #{input[:latitude]}, #{input[:longitude]}, #{input[:direction]}, #{input[:commands].join(' ')}",
-      output: "X, Y DIRECTION"
+      valid_moves: false
     }
+
+    if simulator.calculate
+      json[:valid_moves] = true
+      json[:output] = simulator.output
+    else
+      json[:output] = "Invalid moves!"
+    end
+
+    render json: json
   end
 end

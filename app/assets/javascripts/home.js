@@ -28,6 +28,7 @@ $(document).ready(() => {
                 data,
                 success: data => {
                     const commandContainer = $('#command-container');
+                    const outputValue = $('#outputValue');
                     
                     // reset form
                     $('#latitude').val('0');
@@ -40,7 +41,9 @@ $(document).ready(() => {
 
                     // display input and output value
                     $('#inputValue').html(data.input);
-                    $('#outputValue').html(data.output);
+                    outputValue.html(data.output);
+
+                    data.valid_moves ? outputValue.removeClass('text-danger') : outputValue.addClass('text-danger');
                 },
                 error: error => {
                     console.log(error);
